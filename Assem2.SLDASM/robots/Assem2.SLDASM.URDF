@@ -1,0 +1,202 @@
+<robot
+  name="Assem2.SLDASM">
+  <link
+    name="Motor">
+    <inertial>
+      <origin
+        xyz="0.053845 0.054859 0.066218"
+        rpy="0 0 0" />
+      <mass
+        value="0.53005" />
+      <inertia
+        ixx="0.00052441"
+        ixy="-5.8549E-40"
+        ixz="-1.2125E-22"
+        iyy="0.00052441"
+        iyz="1.283E-36"
+        izz="0.00016567" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2.SLDASM/meshes/Motor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2.SLDASM/meshes/Motor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="cart">
+    <inertial>
+      <origin
+        xyz="0 0.064666 0.0099811"
+        rpy="0 0 0" />
+      <mass
+        value="0.0378" />
+      <inertia
+        ixx="6.2025E-05"
+        ixy="-5.8011E-22"
+        ixz="9.0092E-24"
+        iyy="6.355E-07"
+        iyz="4.6281E-08"
+        izz="6.2019E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2.SLDASM/meshes/cart.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2.SLDASM/meshes/cart.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="continuous">
+    <origin
+      xyz="0.053845 -0.11123 0.054859"
+      rpy="1.5708 0 0" />
+    <parent
+      link="Motor" />
+    <child
+      link="cart" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="pendulum1">
+    <inertial>
+      <origin
+        xyz="0 0.011446 0.075976"
+        rpy="0 0 0" />
+      <mass
+        value="0.047223" />
+      <inertia
+        ixx="0.0001408"
+        ixy="3.2189E-22"
+        ixz="-4.0096E-21"
+        iyy="0.00013978"
+        iyz="1.9333E-07"
+        izz="1.3646E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2.SLDASM/meshes/pendulum1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2.SLDASM/meshes/pendulum1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="continuous">
+    <origin
+      xyz="0 0.13 0.01"
+      rpy="0 0 0" />
+    <parent
+      link="cart" />
+    <child
+      link="pendulum1" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="pendulum2">
+    <inertial>
+      <origin
+        xyz="1.2143E-15 -0.0065 0.073954"
+        rpy="0 0 0" />
+      <mass
+        value="0.032452" />
+      <inertia
+        ixx="7.0853E-05"
+        ixy="2.2322E-22"
+        ixz="-3.9539E-22"
+        iyy="7.0843E-05"
+        iyz="3.7619E-22"
+        izz="1.4335E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2.SLDASM/meshes/pendulum2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2.SLDASM/meshes/pendulum2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="continuous">
+    <origin
+      xyz="0 0.005 0.16"
+      rpy="0 0 -3.1416" />
+    <parent
+      link="pendulum1" />
+    <child
+      link="pendulum2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>
